@@ -3,64 +3,337 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
+  width: 100%;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: 'Titillium Web', sans-serif;
+html,
+body {
+  height: 100%;
+  font-family: "Titillium Web", sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Bangers', cursive;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Bangers", cursive;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
-/* Copy and paste your work from yesterday here and start to refactor into flexbox */
+/* Your code starts here! */
+body {
+  min-width: 690px;
+  height: 1800px
+}
+
+.container {
+	height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Nav bar and its elements */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  text-decoration: bold;
+  color: #a8a8a8;
+}
+
+/* Line-height seems to be quite large */
+p {
+  line-height: 17px;
+}
+
+/* Animations for jumping logo on hover */
+@keyframes point {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.logo:hover {
+  animation: point 0.5s forwards infinite ease-in normal;
+}
+
+
+/* Header section and its elements */
+header {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.get-started {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.h1-container h1 {
+  display: block;
+  height: 100%;
+  font-size: 80px;
+}
+
+.h1-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-img {
+  width: 400px;
+}
+
+/* Media query for getting rid of globe pic for mobile */
+@media only screen and (max-width: 950px) {
+  .header-img {
+    display: none;
+  }
+}
+
+.btn-lg {
+  background: white;
+  border: black solid 1px;
+  width: 170px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.btn-md {
+  background: white;
+  border: black solid 1px;
+  width: 130px;
+  height: 30px;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+/* Divider has to be given new left and right margins to work in flex */
+hr {
+  margin: 10px 0 0 0;
+}
+
+/* Middle section and its elements, including image in a div with overflow hidden for cool effect */
+.row {
+	display: flex;
+}
+
+.img-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-large {
+  width: 1200px;
+}
+
+/* Service header info */
+.services-header-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 120px;
+}
+
+/* Services container uses wrap for responsiveness */
+.services-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.service-container {
+	width: 360px;
+	height: 230px;
+	border: black solid 1px;
+	background: lightgray;
+	padding: 20px;
+	margin: 10px;
+}
+
+/* Facts section of serives.html */
+.facts-container {
+	display: flex;
+	padding: 60px;
+}
+
+.facts {
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+  height: 250px;
+}
+
+.facts ul {
+  list-style-type: circle;
+  margin-left: 15px;
+  line-height: 25px;
+}
+
+/* Services info uses a media query to disappear  */
+.services-info-img {
+	width: 400px;
+	height: 300px;
+}
+@media only screen and (max-width: 870px) {
+	.services-info-img {
+	  display:none;
+	}
+}
+
+/* Font styling for footer must be inline */
+footer {
+  text-align: center;
+  height: 150px;
+  padding-top: 20px;
+}
